@@ -5,24 +5,23 @@ This solution helps with checks for employees table in TRN database
 
 ## Step-by-step setup guide:
 First of all you need to clone this project:
+```git
+git clone https://github.com/VladYatsko/dqe-great-expectations.git
+```
+
+WHen you have project cloned on your local you need to execute:
 ```
 pip install -r requirements.txt
 ```
 
-After all the actions above are performed you can run tests with three ways:
-1) With default Python commands from framework root folder: 
+To run current execution you can perform this command:
 ```
-pytest --alluredir=results --reruns 5 .\tests\   
+great_expectations checkpoint run test_checkpoint  
 ```
-After tests are finished you need to run:
-```
-allure serve results 
-```
-To generate allure report.
 
-2) With running test_runner.bat for Windows to avoid typing commands 2 times.
-3) For Unix/macOS there is test_runner.sh file, but to run it you need first run
-```bash
-chmod +x ./test_runner.sh
-```
-Then execute file with similar snippet as for Windows OS.
+In case you need to configure datasource/assets you can manipulate with current files:
+great_expectations.yml
+test_checkpoint.yml
+
+To configure expectations themselves you can collaborate with:
+employees_expectations.json
